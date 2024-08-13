@@ -10,7 +10,7 @@ import {useAuth} from "@/services/auth";
 export default function DashboardPage() {
     const {getUser, getToken} = useAuth();
     const user = getUser();
-    const username = user.username;
+    const username = user?.username;
     const token = getToken();
     const [messages, setMessages] = useState<any>([]);
     const [message, setMessage] = useState("");
