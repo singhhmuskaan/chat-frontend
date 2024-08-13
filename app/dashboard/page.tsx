@@ -15,7 +15,7 @@ export default function DashboardPage() {
     const [messages, setMessages] = useState<any>([]);
     const [message, setMessage] = useState("");
     const [users, setUsers] = useState([]);
-    const io = socket("http://localhost:1337");//Connecting to Socket.io backend
+    const io = socket("https://chat-backend-production-7ca1.up.railway.app");//Connecting to Socket.io backend
     useEffect(() => {
         let welcome: any;
         io.emit("join", {username, token}, (error: any) => { //Sending the username to the backend as the user connects.
@@ -28,7 +28,7 @@ export default function DashboardPage() {
             };
             welcome = welcomeMessage;
             setMessages([welcomeMessage]);//Storing the Welcome Message
-            await fetch("http://localhost:1337/api/messages", {
+            await fetch("https://chat-backend-production-7ca1.up.railway.app/api/messages", {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                 }
@@ -44,7 +44,7 @@ export default function DashboardPage() {
                 .catch((e) => console.log(e.message));
         });
         io.on("message", async (data, error) => {//Listening for a message connection
-            await fetch("http://localhost:1337/api/messages", {
+            await fetch("https://chat-backend-production-7ca1.up.railway.app/api/messages", {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                 }

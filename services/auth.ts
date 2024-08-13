@@ -3,8 +3,8 @@ import {useEffect} from "react";
 import Cookies from 'js-cookie';
 
 const urls = {
-    login: 'http://localhost:1337/api/auth/local',
-    register: 'http://localhost:1337/api/auth/local/register'
+    login: 'https://chat-backend-production-7ca1.up.railway.app/api/auth/local',
+    register: 'https://chat-backend-production-7ca1.up.railway.app/api/auth/local/register'
 };
 
 export const useAuth = (action?: 'login' | 'register') => {
