@@ -100,7 +100,7 @@ export default function DashboardPage() {
                             <Form onSubmit={handleClick}>
                                 <Form.Group className="d-flex">
                                     <Form.Control type="text" name="message" placeholder="Type a message..." value={message} onChange={handleChange}/>
-                                    <Button variant="primary" className="ml-2">Send</Button>
+                                    <Button type="submit" variant="primary" className="ml-2">Send</Button>
                                 </Form.Group>
                             </Form>
                         </div>
