@@ -9,7 +9,8 @@ import {useAuth} from "@/services/auth";
 
 export default function DashboardPage() {
     const {getUser, getToken} = useAuth();
-    const {username} = getUser();
+    const user = getUser();
+    const username = user.username;
     const token = getToken();
     const [messages, setMessages] = useState<any>([]);
     const [message, setMessage] = useState("");
@@ -60,7 +61,7 @@ export default function DashboardPage() {
         });
     }, [username]);
     const sendMessage = (message: string) => {
-        const {username} = getUser();
+       
         if (message) {
             io.emit("sendMessage", {message, user: username, token}, (error: any) => {// Sending the message to the backend
                 if (error) {
